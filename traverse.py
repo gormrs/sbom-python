@@ -1,4 +1,5 @@
 import os
+from file_util import *
 
 def findRepoTraverse(directory):
     repoCount = 0
@@ -11,35 +12,27 @@ def findRepoTraverse(directory):
         print("Error, directory must be a string")
         return 0 
 
-    # checks if the directory is valid
-    if not os.path.isdir(directory):
-        print(f"Error, {directory} is not a valid directory")
-        return 0
-    
-    
-
-
     for root, dirs, files in os.walk(directory):
         if ".git" in dirs:
             repoCount += 1
-            getPythonRequirements(root)
-            
+            if "requirements.txt" in os.listdir(root):
+                getPythonRequirements(root)
             dirs.remove(".git")
 
-
-        for dir in dirs:
-            findRepoTraverse(dir)
 
     return repoCount
 
 def getPythonRequirements(directory):
-    
     if "requirements.txt" not in os.listdir(directory):
         return
     
     with open(os.path.join(directory, "requirements.txt"), "r") as f:
         for line in f:
-            print(f"{line}")
+            row = line.split("==")
+            if len(row) == 2:
+                name = row[0].strip()
+                version = row[1].strip()
+                writeCsv(name, version, "pip", directory)
 
-
-
+    f.close()
+            
