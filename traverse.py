@@ -22,6 +22,7 @@ def findRepoTraverse(directory):
     for root, dirs, files in os.walk(directory):
         if ".git" in dirs:
             repoCount += 1
+            getPythonRequirements(root)
             
             dirs.remove(".git")
 
@@ -30,3 +31,15 @@ def findRepoTraverse(directory):
             findRepoTraverse(dir)
 
     return repoCount
+
+def getPythonRequirements(directory):
+    
+    if "requirements.txt" not in os.listdir(directory):
+        return
+    
+    with open(os.path.join(directory, "requirements.txt"), "r") as f:
+        for line in f:
+            print(f"{line}")
+
+
+
