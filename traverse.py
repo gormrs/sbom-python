@@ -1,3 +1,4 @@
+import json
 import os
 from file_util import *
 
@@ -17,6 +18,8 @@ def findRepoTraverse(directory):
             repoCount += 1
             if "requirements.txt" in os.listdir(root):
                 getPythonRequirements(root)
+            if "package.json" in os.listdir(root):
+                getJavaDependencies(root)
             dirs.remove(".git")
 
 
@@ -35,4 +38,15 @@ def getPythonRequirements(directory):
                 writeCsv(name, version, "pip", directory)
 
     f.close()
-            
+
+def getJavaDependencies(directory):
+    if "package.json" not in os.listdir(directory):
+        return
+    
+    # todo: add a flag for dev dependencies
+    with open(os.path.join(directory, "package.json"), "r") as f:
+        data = json.load(f)
+        for dependency in data["dependencies"]:
+            name = dependency
+            version = data["dependencies"][dependency]
+            writeCsv(name, version, "npm", directory)
