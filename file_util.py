@@ -3,6 +3,16 @@ import json
 
 
 def write_csv(name, version, packageManager, directory, commit, link):
+    """
+    Writes dependency information to the sbom.csv file.
+
+    :param name: The name of the dependency
+    :param version: The version of the dependency
+    :param packageManager: The package manager used for the dependency (e.g. 'pip' or 'npm')
+    :param directory: The directory of the project containing the dependency
+    :param commit: The commit hash of the project
+    :param link: The URL of the dependency's package page
+    """
     # write data to csv file
 
     with open("sbom.csv", "a", encoding='utf-8') as sbom_csv:
@@ -13,7 +23,16 @@ def write_csv(name, version, packageManager, directory, commit, link):
 
 
 def write_json(name, version, packageManager, directory, commit, link):
-    # write data to json file
+    """
+    Writes dependency information to the sbom.json file.
+
+    :param name: The name of the dependency
+    :param version: The version of the dependency
+    :param packageManager: The package manager used for the dependency (e.g. 'pip' or 'npm')
+    :param directory: The directory of the project containing the dependency
+    :param commit: The commit hash of the project
+    :param link: The URL of the dependency's package page
+    """
 
     data = {
         "name": name,
@@ -50,6 +69,9 @@ def write_json(name, version, packageManager, directory, commit, link):
 
 
 def clear_output():
+    """
+    Removes sbom.csv and sbom.json files if they exist in the current working directory.
+    """
     if os.path.isfile("sbom.csv"):
         os.remove("sbom.csv")
     if os.path.isfile("sbom.json"):

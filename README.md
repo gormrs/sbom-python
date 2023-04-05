@@ -37,3 +37,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 * Any know vulnerabilities in the dependency and the severity of the vulnerability (if possible)
 * Licensing inforamtion to know if you can use the dependency
 * Description of the dependency
+* Options to store the csv and json files in a different directory, if a user want to store them for logging purposes

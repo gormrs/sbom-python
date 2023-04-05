@@ -6,6 +6,16 @@ from dependency_info import get_latest_commit, get_npm_link, get_pypi_link
 
 
 def find_repo_traverse(directory):
+    """
+    Traverse the given directory to find repositories and generate an SBOM
+    for each repository with a requirements.txt or package.json file.
+
+    Args:
+        directory (str): The path to the directory to search for repositories.
+
+    Returns:
+        int: The number of repositories found in the directory.
+    """
     repo_count = 0
     found_a_sbomfile = False
 
@@ -43,6 +53,14 @@ def find_repo_traverse(directory):
 
 
 def get_python_requirements(directory):
+    """
+    Process the requirements.txt file in the given directory and extract
+    the Python dependencies to generate an SBOM.
+
+    Args:
+        directory (str): The path to the repository directory containing the
+                         requirements.txt file.
+    """
     if "requirements.txt" not in os.listdir(directory):
         return
 
@@ -62,6 +80,14 @@ def get_python_requirements(directory):
 
 
 def get_js_dependencies(directory):
+    """
+    Process the package.json file in the given directory and extract
+    the JavaScript dependencies to generate an SBOM.
+
+    Args:
+        directory (str): The path to the repository directory containing the
+                         package.json file.
+    """
     if "package.json" not in os.listdir(directory):
         return
 

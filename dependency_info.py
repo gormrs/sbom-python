@@ -4,6 +4,12 @@ import subprocess
 
 
 def get_latest_commit(directory):
+    """
+    Gets the latest commit hash for the git repository located in the specified directory.
+
+    :param directory: The directory containing the git repository
+    :return: The latest commit hash as a string
+    """
     if not directory:
         print("Error, no directory specified")
         sys.exit(1)
@@ -27,6 +33,12 @@ def get_latest_commit(directory):
 
 
 def get_npm_link(name):
+    """
+    Generates the npm package URL for the given package name.
+
+    :param name: The name of the npm package
+    :return: The URL of the npm package page as a string
+    """
     if not name:
         print("Error, no name specified")
         sys.exit(1)
@@ -39,6 +51,12 @@ def get_npm_link(name):
 
 
 def get_pypi_link(name):
+    """
+    Generates the PyPI package URL for the given package name.
+
+    :param name: The name of the PyPI package
+    :return: The URL of the PyPI package page as a string
+    """
     if not name:
         print("Error, no name specified")
         sys.exit(1)
