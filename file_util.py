@@ -5,10 +5,11 @@ import json
 def write_csv(name, version, packageManager, directory, commit, link):
     # write data to csv file
 
-    with open("sbom.csv", "a") as f:  
-        f.write(f"{name},{version},{packageManager},{directory},{commit},{link}\n")
+    with open("sbom.csv", "a", encoding='utf-8') as sbom_csv:
+        sbom_csv.write(
+            f"{name},{version},{packageManager},{directory},{commit},{link}\n")
 
-    f.close()
+    sbom_csv.close()
 
 
 def write_json(name, version, packageManager, directory, commit, link):
@@ -24,12 +25,12 @@ def write_json(name, version, packageManager, directory, commit, link):
     }
 
     json_data = []
-    
+
     # Read existing data from the file if it exists
     if os.path.exists("sbom.json"):
         try:
-            with open("sbom.json", "r") as f:
-                json_data = json.load(f)
+            with open("sbom.json", "r", encoding='utf-8') as sbom_csv:
+                json_data = json.load(sbom_csv)
         except IOError:
             print("Error reading sbom.json")
         except json.JSONDecodeError:
@@ -40,13 +41,13 @@ def write_json(name, version, packageManager, directory, commit, link):
 
     # Write the updated data back to the file
     try:
-        with open("sbom.json", "w") as f:
-            json.dump(json_data, f, indent=2)
+        with open("sbom.json", "w", encoding='utf-8') as sbom_csv:
+            json.dump(json_data, sbom_csv, indent=2)
     except IOError:
         print("Error writing to sbom.json")
-        
 
-    f.close()
+    sbom_csv.close()
+
 
 def clear_output():
     if os.path.isfile("sbom.csv"):
