@@ -31,6 +31,10 @@ def find_repo_traverse(directory):
                 found_a_sbomfile = True
             dirs.remove(".git")
 
+    if repo_count == 0:
+        print("Error, no repos found")
+        sys.exit(1)
+
     if not found_a_sbomfile:
         print("Error, no sbom file found")
         sys.exit(1)
