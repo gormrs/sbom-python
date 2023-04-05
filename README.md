@@ -11,6 +11,7 @@ The generated SBOM will be output in both CSV and JSON formats, containing infor
 
 ## Requirements
 * Python 3
+* Git
 
 ## Usage
 1. Clone the repository or download the source code.
@@ -30,6 +31,13 @@ in this repo the example folder contains a few repos to test the script on.
 5. The script will traverse the specified directory and generate an SBOM for each detected repository with a requirements.txt or package.json file.
 
 6. The generated SBOM files, sbom.csv and sbom.json, will be saved in the same directory as the script.
+
+## Testing
+To run the tests, run the following command int the test directory:
+
+`python test_sbom.py`
+
+else you can run the script on the example folder to see the output.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.

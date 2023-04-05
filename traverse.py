@@ -25,7 +25,6 @@ def find_repo_traverse(directory):
 
     if not isinstance(directory, str):
         print(f"Error, directory must be a string, not {type(directory)}")
-        print("Error, directory must be a string")
         sys.exit(1)
 
     if not os.path.isdir(directory):
