@@ -22,3 +22,25 @@ def get_latest_commit(directory):
     except subprocess.CalledProcessError:
         print("Error, git command failed")
         sys.exit(1)
+
+def get_npm_link(name):
+    if not name:
+        print("Error, no name specified")
+        sys.exit(1)
+    
+    if type(name) != str:
+        print("Error, name must be a string")
+        sys.exit(1)
+
+    return f"https://www.npmjs.com/package/{name}"
+
+def get_pypi_link(name):
+    if not name:
+        print("Error, no name specified")
+        sys.exit(1)
+    
+    if type(name) != str:
+        print("Error, name must be a string")
+        sys.exit(1)
+
+    return f"https://pypi.org/project/{name}"

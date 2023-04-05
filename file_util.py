@@ -2,16 +2,16 @@ import os
 import json
 
 
-def write_csv(name, version, packageManager, directory, commit):
+def write_csv(name, version, packageManager, directory, commit, link):
     # write data to csv file
 
     with open("sbom.csv", "a") as f:  
-        f.write(f"{name},{version},{packageManager},{directory},{commit}\n")
+        f.write(f"{name},{version},{packageManager},{directory},{commit},{link}\n")
 
     f.close()
 
 
-def write_json(name, version, packageManager, directory, commit):
+def write_json(name, version, packageManager, directory, commit, link):
     # write data to json file
 
     data = {
@@ -19,7 +19,8 @@ def write_json(name, version, packageManager, directory, commit):
         "version": version,
         "packageManager": packageManager,
         "directory": directory,
-        "commit": commit
+        "commit": commit,
+        "link": link,       # traling comma
     }
 
     json_data = []

@@ -46,10 +46,11 @@ def get_python_requirements(directory):
             if len(row) == 2:
                 name = row[0].strip()
                 version = row[1].strip()
-                
                 commit = get_latest_commit(directory)
-                write_csv(name, version, "pip", directory, commit)
-                write_json(name, version, "pip", directory, commit)
+                link = get_pypi_link(name)
+
+                write_csv(name, version, "pip", directory, commit, link)
+                write_json(name, version, "pip", directory, commit, link)
 
     f.close()
 
@@ -64,5 +65,7 @@ def get_java_dependencies(directory):
             name = dependency
             version = data["dependencies"][dependency]
             commit = get_latest_commit(directory)
-            write_csv(name, version, "npm", directory, commit)
-            write_json(name, version, "npm", directory, commit)
+            link = get_npm_link(name)
+
+            write_csv(name, version, "npm", directory, commit, link)
+            write_json(name, version, "npm", directory, commit, link)
