@@ -9,6 +9,9 @@ The generated SBOM will be output in both CSV and JSON formats, containing infor
 * Traverses through specified directory to find repositories
 * Extracts dependency information, including commit hash and package URL
 
+## Requirements
+* Python 3
+
 ## Usage
 1. Clone the repository or download the source code.
 
@@ -21,6 +24,8 @@ The generated SBOM will be output in both CSV and JSON formats, containing infor
 `python sbom.py [directory]`
 
 Replace [directory] with the path to the directory containing your repositories.
+
+in this repo the example folder contains a few repos to test the script on.
 
 5. The script will traverse the specified directory and generate an SBOM for each detected repository with a requirements.txt or package.json file.
 
@@ -38,3 +43,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 * Licensing inforamtion to know if you can use the dependency
 * Description of the dependency
 * Options to store the csv and json files in a different directory, if a user want to store them for logging purposes
+* Add a flag to get dev dependencies
