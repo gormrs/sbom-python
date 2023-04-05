@@ -36,6 +36,7 @@ def getPythonRequirements(directory):
                 name = row[0].strip()
                 version = row[1].strip()
                 writeCsv(name, version, "pip", directory)
+                writeJson(name, version, "pip", directory)
 
     f.close()
 
@@ -50,3 +51,4 @@ def getJavaDependencies(directory):
             name = dependency
             version = data["dependencies"][dependency]
             writeCsv(name, version, "npm", directory)
+            writeJson(name, version, "npm", directory)
