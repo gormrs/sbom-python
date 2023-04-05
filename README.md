@@ -18,7 +18,7 @@ The generated SBOM will be output in both CSV and JSON formats, containing infor
 
 4. Run the script with the following command:
 
-`python main.py [directory]`
+`python sbom.py [directory]`
 
 Replace [directory] with the path to the directory containing your repositories.
 
