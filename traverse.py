@@ -2,6 +2,7 @@ import json
 import os
 from file_util import *
 import sys
+from dependency_info import *
 
 def find_repo_traverse(directory):
     repo_count = 0
@@ -45,8 +46,10 @@ def get_python_requirements(directory):
             if len(row) == 2:
                 name = row[0].strip()
                 version = row[1].strip()
-                write_csv(name, version, "pip", directory)
-                write_json(name, version, "pip", directory)
+                
+                commit = get_latest_commit(directory)
+                write_csv(name, version, "pip", directory, commit)
+                write_json(name, version, "pip", directory, commit)
 
     f.close()
 
@@ -60,5 +63,6 @@ def get_java_dependencies(directory):
         for dependency in data["dependencies"]:
             name = dependency
             version = data["dependencies"][dependency]
-            write_csv(name, version, "npm", directory)
-            write_json(name, version, "npm", directory)
+            commit = get_latest_commit(directory)
+            write_csv(name, version, "npm", directory, commit)
+            write_json(name, version, "npm", directory, commit)
