@@ -23,7 +23,8 @@ def find_repo_traverse(directory):
         print("Error, no directory specified")
         sys.exit(1)
 
-    if isinstance(directory) != str:
+    if not isinstance(directory, str):
+        print(f"Error, directory must be a string, not {type(directory)}")
         print("Error, directory must be a string")
         sys.exit(1)
 
@@ -31,7 +32,7 @@ def find_repo_traverse(directory):
         print("Error, directory does not exist")
         sys.exit(1)
 
-    for root, dirs in os.walk(directory):
+    for root, dirs, files in os.walk(directory):
         if ".git" in dirs:
             repo_count += 1
             if "requirements.txt" in os.listdir(root):

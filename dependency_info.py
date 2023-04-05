@@ -14,7 +14,7 @@ def get_latest_commit(directory):
         print("Error, no directory specified")
         sys.exit(1)
 
-    if isinstance(directory) != str:
+    if not isinstance(directory, str):
         print("Error, directory must be a string")
         sys.exit(1)
 
@@ -43,7 +43,7 @@ def get_npm_link(name):
         print("Error, no name specified")
         sys.exit(1)
 
-    if isinstance(name) != str:
+    if not isinstance(name, str):
         print("Error, name must be a string")
         sys.exit(1)
 
@@ -61,7 +61,7 @@ def get_pypi_link(name):
         print("Error, no name specified")
         sys.exit(1)
 
-    if isinstance(name) != str:
+    if not isinstance(name, str):
         print("Error, name must be a string")
         sys.exit(1)
 
