@@ -27,7 +27,7 @@ def find_repo_traverse(directory):
                 get_python_requirements(root)
                 found_a_sbomfile = True
             if "package.json" in os.listdir(root):
-                get_java_dependencies(root)
+                get_js_dependencies(root)
                 found_a_sbomfile = True
             dirs.remove(".git")
 
@@ -58,7 +58,7 @@ def get_python_requirements(directory):
 
     f.close()
 
-def get_java_dependencies(directory):
+def get_js_dependencies(directory):
     if "package.json" not in os.listdir(directory):
         return
     
