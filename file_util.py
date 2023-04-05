@@ -2,13 +2,13 @@ import os
 import json
 
 
-def write_csv(name, version, packageManager, directory, commit, link):
+def write_csv(name, version, package_manager, directory, commit, link):
     """
     Writes dependency information to the sbom.csv file.
 
     :param name: The name of the dependency
     :param version: The version of the dependency
-    :param packageManager: The package manager used for the dependency (e.g. 'pip' or 'npm')
+    :param package_manager: The package manager used for the dependency (e.g. 'pip' or 'npm')
     :param directory: The directory of the project containing the dependency
     :param commit: The commit hash of the project
     :param link: The URL of the dependency's package page
@@ -17,18 +17,18 @@ def write_csv(name, version, packageManager, directory, commit, link):
 
     with open("sbom.csv", "a", encoding='utf-8') as sbom_csv:
         sbom_csv.write(
-            f"{name},{version},{packageManager},{directory},{commit},{link}\n")
+            f"{name},{version},{package_manager},{directory},{commit},{link}\n")
 
     sbom_csv.close()
 
 
-def write_json(name, version, packageManager, directory, commit, link):
+def write_json(name, version, package_manager, directory, commit, link):
     """
     Writes dependency information to the sbom.json file.
 
     :param name: The name of the dependency
     :param version: The version of the dependency
-    :param packageManager: The package manager used for the dependency (e.g. 'pip' or 'npm')
+    :param package_manager: The package manager used for the dependency (e.g. 'pip' or 'npm')
     :param directory: The directory of the project containing the dependency
     :param commit: The commit hash of the project
     :param link: The URL of the dependency's package page
@@ -37,7 +37,7 @@ def write_json(name, version, packageManager, directory, commit, link):
     data = {
         "name": name,
         "version": version,
-        "packageManager": packageManager,
+        "package_manager": package_manager,
         "directory": directory,
         "commit": commit,
         "link": link,       # traling comma
