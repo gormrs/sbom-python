@@ -2,8 +2,8 @@ import json
 import os
 from file_util import *
 
-def findRepoTraverse(directory):
-    repoCount = 0
+def find_repo_traverse(directory):
+    repo_count = 0
 
     if not directory:
         print("Error, no directory specified")
@@ -15,17 +15,17 @@ def findRepoTraverse(directory):
 
     for root, dirs, files in os.walk(directory):
         if ".git" in dirs:
-            repoCount += 1
+            repo_count += 1
             if "requirements.txt" in os.listdir(root):
-                getPythonRequirements(root)
+                get_python_requirements(root)
             if "package.json" in os.listdir(root):
-                getJavaDependencies(root)
+                get_java_dependencies(root)
             dirs.remove(".git")
 
 
-    return repoCount
+    return repo_count
 
-def getPythonRequirements(directory):
+def get_python_requirements(directory):
     if "requirements.txt" not in os.listdir(directory):
         return
     
@@ -35,12 +35,12 @@ def getPythonRequirements(directory):
             if len(row) == 2:
                 name = row[0].strip()
                 version = row[1].strip()
-                writeCsv(name, version, "pip", directory)
-                writeJson(name, version, "pip", directory)
+                write_csv(name, version, "pip", directory)
+                write_json(name, version, "pip", directory)
 
     f.close()
 
-def getJavaDependencies(directory):
+def get_java_dependencies(directory):
     if "package.json" not in os.listdir(directory):
         return
     
@@ -50,5 +50,5 @@ def getJavaDependencies(directory):
         for dependency in data["dependencies"]:
             name = dependency
             version = data["dependencies"][dependency]
-            writeCsv(name, version, "npm", directory)
-            writeJson(name, version, "npm", directory)
+            write_csv(name, version, "npm", directory)
+            write_json(name, version, "npm", directory)

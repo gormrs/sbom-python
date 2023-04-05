@@ -2,7 +2,7 @@ import os
 import json
 
 
-def writeCsv(name, version, packageManager, directory):
+def write_csv(name, version, packageManager, directory):
     # write data to csv file
 
     with open("sbom.csv", "a") as f:  
@@ -11,7 +11,7 @@ def writeCsv(name, version, packageManager, directory):
     f.close()
 
 
-def writeJson(name, version, packageManager, directory):
+def write_json(name, version, packageManager, directory):
     # write data to json file
 
     data = {
@@ -46,7 +46,7 @@ def writeJson(name, version, packageManager, directory):
 
     f.close()
 
-def clearOutput():
+def clear_output():
     if os.path.isfile("sbom.csv"):
         os.remove("sbom.csv")
     if os.path.isfile("sbom.json"):
