@@ -8,6 +8,7 @@ The generated SBOM will be output in both CSV and JSON formats, containing infor
 * Generates SBOM in CSV and JSON formats
 * Traverses through specified directory to find repositories
 * Extracts dependency information, including commit hash and package URL
+* Uses GitHub Actions to run CI tests on every push
 
 ## Requirements
 * Python 3
