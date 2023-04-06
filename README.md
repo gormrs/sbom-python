@@ -1,5 +1,5 @@
 ## Python SBOM Generator
-This SBOM Generator is a Python script that helps you generate a Software Bill of Materials (SBOM) for your repositories. It supports Python and JavaScript projects with **requirements.txt** and **package.json** files, respectively.
+This Software Bill of Materials (SBOM) Generator is a Python script that helps you generate a SBOM for your repositories. It supports Python and JavaScript projects with **requirements.txt** and **package.json** files, respectively.
 
 The generated SBOM will be output in both CSV and JSON formats, containing information about each dependency, including its name, version, package manager, repository directory, commit hash, and package URL.
 
@@ -23,11 +23,11 @@ The generated SBOM will be output in both CSV and JSON formats, containing infor
 
 4. Run the script with the following command:
 
-`python sbom.py [directory]`
+`python sbom.py path/to/your/repositories`
 
-Replace [directory] with the path to the directory containing your repositories.
+Replace path/to/your/repositories with the path to the directory containing your repositories.
 
-in this repo the example folder contains a few repos to test the script on.
+In this repository, the 'example' folder contains a few sample repositories to test the script on.
 
 5. The script will traverse the specified directory and generate an SBOM for each detected repository with a requirements.txt or package.json file.
 
@@ -38,7 +38,7 @@ To run the tests, run the following command in the root directory:
 
 `python -m unittest tests/test_sbom.py`
 
-else you can run the script on the example folder to see the output.
+Alternatively, you can test the script by running it on the 'example' folder included in the repository to see the output.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
