@@ -33,9 +33,9 @@ in this repo the example folder contains a few repos to test the script on.
 6. The generated SBOM files, sbom.csv and sbom.json, will be saved in the same directory as the script.
 
 ## Testing
-To run the tests, run the following command int the test directory:
+To run the tests, run the following command in the root directory:
 
-`python test_sbom.py`
+`python -m unittest tests/test_sbom.py`
 
 else you can run the script on the example folder to see the output.
 
